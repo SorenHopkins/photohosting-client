@@ -46,9 +46,9 @@ const Image = (props) => {
         <Card.Img variant="top" className= 'cardImage' src={image.url} />
         <Card.Body className="cardBody">
           <Card.Title>{image.name}</Card.Title>
-          <Button variant="primary" onClick={destroy}>Delete Image</Button>
+          <Button className="formButton" variant="primary" onClick={destroy}>Delete Image</Button>
           <Link to={`${props.match.params.id}/edit`}>
-            <Button variant="primary">Edit</Button>
+            <Button className="formButton" variant="primary">Edit</Button>
           </Link>
         </Card.Body>
       </Card>

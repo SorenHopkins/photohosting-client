@@ -12,6 +12,7 @@ import PostImage from '../Images/PostImage.js'
 import Image from '../Images/Image.js'
 import Images from '../Images/Images.js'
 import EditImage from '../Images/EditImage.js'
+import HomePage from '../Images/HomePage.js'
 
 class App extends Component {
   constructor () {
@@ -36,7 +37,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
+        <Header className="header" user={user} />
         {alerts.map((alert, index) => (
           <AutoDismissAlert
             key={index}
@@ -46,6 +47,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <HomePage />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
