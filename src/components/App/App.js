@@ -8,6 +8,10 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import PostImage from '../Images/PostImage.js'
+import Image from '../Images/Image.js'
+import Images from '../Images/Images.js'
+import EditImage from '../Images/EditImage.js'
 
 class App extends Component {
   constructor () {
@@ -53,6 +57,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/post-image' render={() => (
+            <PostImage alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/images/:id' render={(props) => (
+            <Image {...props} alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/images' render={() => (
+            <Images alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/images/:id/edit' render={(props) => (
+            <EditImage {...props} alert={this.alert} user={user} />
           )} />
         </main>
       </Fragment>
