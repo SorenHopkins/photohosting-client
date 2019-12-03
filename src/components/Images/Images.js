@@ -19,7 +19,7 @@ const Images = (props) => {
   }, [])
 
   const imagesList = images.map(image => (
-    <div className="col-md-4" key={image._id}>
+    <div className="col-md-3 cardItem" key={image._id}>
       <Card>
         <Card.Img variant="top" src={image.url} />
         <Link to={`/images/${image._id}`} className="btn-group">
@@ -30,10 +30,11 @@ const Images = (props) => {
   ))
 
   return (
-    <div>
-      <h4>Images</h4>
-      <div className='row'>
-        {imagesList}
+    <div className="mainImages">
+      <div className="col-md-9">
+        <div className='row'>
+          {imagesList}
+        </div>
       </div>
     </div>
   )

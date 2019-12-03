@@ -42,7 +42,7 @@ const Image = (props) => {
 
   return (
     <div className="singleImage">
-      <Card className="card col-md-8">
+      <Card className="card col-md-6">
         <Card.Img variant="top" className= 'cardImage' src={image.url} />
         <Card.Body className="cardBody">
           <Card.Title>{image.name}</Card.Title>

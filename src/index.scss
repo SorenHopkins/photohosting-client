@@ -2,9 +2,11 @@
 
 .row {
   display: flex;
-  align-content: space-between;
+  align-content: flex-direction;
   justify-content: space-between;
   flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
   height: 100%
 }
 
@@ -68,7 +70,17 @@ Alert {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.form > * {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.mainImages {
+  display: flex;
+  justify-content: center;
 }
 
 .formButton {
