@@ -13,7 +13,6 @@ const EditImage = (props) => {
     event.persist()
 
     setImage(image => ({ ...image, [event.target.name]: event.target.value }))
-    console.log(image)
   }
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const EditImage = (props) => {
         'Authorization': `Bearer ${props.user.token}`
       } })
       .then(res => {
-        console.log(res.data.image)
         setImage(res.data.image)
       })
       .catch(console.error)
@@ -33,9 +31,9 @@ const EditImage = (props) => {
     event.preventDefault()
 
     const formData = new FormData(event.target)
+    formData.append('bookmark', image.favorite)
     const imageJSON = JSON.stringify(image)
     formData.append('image', imageJSON)
-    console.log(formData)
     axios({
       url: `${apiUrl}/images/${props.match.params.id}`,
       method: 'PATCH',
@@ -45,7 +43,6 @@ const EditImage = (props) => {
       data: formData
     })
       .then(res => {
-        console.log(res)
         setUpdate(true)
       })
       .catch(console.error)

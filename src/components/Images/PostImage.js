@@ -21,15 +21,25 @@ const ImageCreate = (props) => {
     }
 
     setImage(image => ({ ...image, [event.target.name]: value }))
-    console.log(image)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-
+    if (image.name === '') {
+      props.alert({
+        heading: 'Post Failed',
+        message: 'Please enter a name for your file!',
+        variant: 'danger'
+      })
+    } else if (image.file === null) {
+      props.alert({
+        heading: 'Post Failed',
+        message: 'Please attach a file!',
+        variant: 'danger'
+      })
+    }
     const formData = new FormData(event.target)
-    formData.append('favorite', image.favorite)
-    console.log(formData)
+    formData.append('bookmark', image.favorite)
     axios({
       url: `${apiUrl}/images`,
       method: 'POST',
@@ -39,7 +49,6 @@ const ImageCreate = (props) => {
       data: formData
     })
       .then(res => {
-        console.log(res)
         setImageId(res.data.image._id)
       })
       .catch(console.error)
