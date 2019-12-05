@@ -31,12 +31,6 @@ const ImageCreate = (props) => {
         message: 'Please enter a name for your file!',
         variant: 'danger'
       })
-    } else if (image.file === null) {
-      props.alert({
-        heading: 'Post Failed',
-        message: 'Please attach a file!',
-        variant: 'danger'
-      })
     }
     const formData = new FormData(event.target)
     formData.append('bookmark', image.favorite)
